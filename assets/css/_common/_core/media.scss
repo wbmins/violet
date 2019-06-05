@@ -25,7 +25,16 @@
                 padding-left: 1em;
                 box-sizing: border-box;
 
-        
+                .navbar-right {
+                    display: flex;
+                    align-items: center;
+                    i {
+                        padding: 0 8px;
+                        float: left;
+                        font-size: 30px;
+                    }
+                }
+
                 .menu-toggle {
                     cursor: pointer;
                     line-height: 5.5em;
