@@ -17,15 +17,39 @@
     }
     .container {
       width: auto;
-      max-width: 1200px;
+      max-width: 1000px;
       text-align: center;
       margin: 0 auto;
       display: flex;
       justify-content: space-between;
       font-size: 1.125em;
+
+      .menu {
+        border-right: 2px solid;
+      }
+
+      .header-logo {
+        font-weight: bold;
+        font-family: monospace, monospace;
+      }
+
+      .logo_cursor {
+        display: inline-block;
+        width: 10px;
+        height: 1rem;
+        background: #fe5186;
+        margin-left: 5px;
+        border-radius: 1px;
+        animation: cursor 1s infinite;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .logo_cursor {
+          animation: none;
+        }
+      }
     }
   }
-  
+
   .main {
     flex: 1 0 auto;
   }
@@ -47,4 +71,10 @@
     font-size: 2em;
     transform: translateY(35vh);
     text-align: center;
+  }
+
+  @keyframes cursor {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
   }

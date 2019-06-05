@@ -4,14 +4,23 @@
     {{ end }}
     <div class="container">
         <div class="navbar-header header-logo">
+            {{ if .IsHome }}
         	<a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>
+            {{ else }}
+            <span class="logo_mark" >></span>
+            <a href="{{ .Site.BaseURL }}">
+                <span class="logo_text" >$ cd /home/ </span>
+                <span class="logo_cursor" ></span>
+            </a>
+            {{ end }}
         </div>
-        <div class="menu navbar-right">
+        <div class="navbar-right">
                 {{ $currentPage := . }}
+                <span class="menu">
                 {{ range .Site.Menus.main }}
                 <a class="menu-item{{if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }} active{{end}}" href="{{ .URL }}" title="{{ .Title }}">{{ .Name }}</a>
                 {{ end }}
-                <span class="menu-item">|</span>
+                </span>
                 <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-sun"></i></a>
         </div>
     </div>
@@ -22,7 +31,17 @@
      {{ end }}
      <div class="container">
         <div class="navbar-header">
-            <span>  <a href="{{.Site.BaseURL}}">{{ .Site.Title }}</a></span>
+            <div class="header-logo">
+                {{ if .IsHome }}
+                    <a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>
+                {{ else }}
+                    <span class="logo_mark">></span>
+                    <a href="{{ .Site.BaseURL }}">
+                        <span class="logo_text">$ cd /home/ </span>
+                        <span class="logo_cursor"></span>
+                </a>
+                {{ end }}
+            </div>
             <div class="navbar-right">
                 <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-sun"></i></a>
                 <div class="menu-toggle">

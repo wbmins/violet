@@ -16,6 +16,27 @@
             line-height: 5.5em;
             background: $light-background-color;
 
+
+            .header-logo {
+                line-height: initial;
+                font-weight: bold;
+                font-family: monospace, monospace;
+            }
+
+            .logo_cursor {
+                display: inline-block;
+                width: 10px;
+                height: 1rem;
+                background: #fe5186;
+                margin-left: 5px;
+                border-radius: 1px;
+                animation: cursor 1s infinite;
+            }
+            @media (prefers-reduced-motion: reduce) {
+                .logo_cursor {
+                animation: none;
+                }
+            }
             .navbar-header {
                 display: flex;
                 justify-content: space-between;
