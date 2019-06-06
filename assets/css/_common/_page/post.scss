@@ -95,11 +95,11 @@
         code:not([class]) {
             padding: 1px 6px;
             margin: 0 2px;
-            background: #eaeaea;
+            background: $light-code-notclass-background-color;
             border-radius: 5px;
 
             .dark-theme &:not([class]) {
-                background: #3b3d42;
+                background: $dark-code-notclass-background-color;
             }
         }
 

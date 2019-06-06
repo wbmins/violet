@@ -95,7 +95,6 @@
     background-color:#f1f1f1;
 
     .dark-theme & {
-      // background-color:#29292D;
-      background-color:#252529;
+      background-color:$dark-blockquote-background-color;
     }
   }

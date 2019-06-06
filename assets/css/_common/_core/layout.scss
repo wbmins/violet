@@ -11,9 +11,9 @@
     height: 4rem;
     line-height: 4rem;
     width: 100%;
-    background-color: #fafafa;
+    background-color: $light-navbar-background-color;
     .dark-theme & {
-      background-color:#252627;
+      background-color: $dark-navbar-background-color;
     }
     .container {
       width: auto;
