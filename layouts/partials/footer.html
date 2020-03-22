@@ -11,6 +11,10 @@
             <span class="author" itemprop="copyrightHolder"><a href="{{ .Site.BaseURL }}">{{ .Site.Params.author  }}</a> | </span>
          {{ end }}
 
+         {{if .Site.Params.status}}
+            <img src="{{ .Site.Params.status }}" />
+         {{end}}
+
          {{ with .Site.Params.beian }}
             <a href="http://www.miibeian.gov.cn/" target="_blank" rel="external nofollow">{{ . }} </a> |
          {{ end }}
