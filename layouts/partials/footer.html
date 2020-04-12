@@ -1,21 +1,29 @@
 <footer class="footer">
-    <div class="copyright">
-        &copy;
-        {{ with .Site.Params.since }}
-        <span itemprop="copyrightYear">{{.}} - {{ now.Year }}</span>
-        {{ end }}
-        <span class="with-love">
-    	 <i class="iconfont icon-love"></i>
-         </span>
-         {{ if .Site.Params.author }}
-            <span class="author" itemprop="copyrightHolder"><a href="{{ .Site.BaseURL }}">{{ .Site.Params.author  }}</a> | </span>
-         {{ end }}
+   <div class="copyright">
+      &copy;
+      {{ with .Site.Params.since }}
+      <span itemprop="copyrightYear">{{.}} - {{ now.Year }}</span>
+      {{ end }}
 
-         {{ with .Site.Params.beian }}
-            <a href="http://www.miibeian.gov.cn/" target="_blank" rel="external nofollow">{{ . }} </a> |
-         {{ end }}
-		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span>
-    </div>
+      {{- with .Site.Params.iconBetweenYearAndAuthor -}}
+      {{- $.Scratch.Set "siteInfoIcon" (printf `&nbsp;%s&nbsp;` (replace (index $.Site.Data.SVG .) "icon" "heart-icon footer-icon")) -}}
+      {{- else -}}
+      {{- $.Scratch.Set "siteInfoIcon" "&nbsp;" -}}
+      {{- end -}}
+      {{- $siteInfoIcon := .Scratch.Get "siteInfoIcon" -}}
+      <span>{{ printf `%s` $siteInfoIcon | safeHTML }}</span>
+
+      {{ if .Site.Params.author }}
+      <span class="author" itemprop="copyrightHolder"><a href="{{ .Site.BaseURL }}">{{ .Site.Params.author  }}</a> |
+      </span>
+      {{ end }}
+
+      {{ with .Site.Params.beian }}
+      <a href="http://www.miibeian.gov.cn/" target="_blank" rel="external nofollow">{{ . }} </a> |
+      {{ end }}
+      <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a
+            href="https://github.com/wbmins/violet" target="_blank" rel="external nofollow">Violet</a></span>
+   </div>
 </footer>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js"></script>
 <script> pangu.spacingPage();/*这个是博客全局都进行自动加空格处理*/ </script>
