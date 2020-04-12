@@ -1,5 +1,11 @@
 .post-warp {
 
+    .list-year {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+    }
+
     .archive-item {
         margin-left: 2rem;
     }

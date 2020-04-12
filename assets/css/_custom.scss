@@ -48,3 +48,15 @@
 .spoiler:hover{
   color: white;
 }
+
+//生效图标
+.icon {
+  width: 2em;
+  height: 2em;
+  fill: currentColor;
+  display: inline-block;
+}
+
+svg {
+  vertical-align: middle;
+}
