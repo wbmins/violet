@@ -23,7 +23,7 @@ jQuery(function ($) {
     _Blog.changeTitle = function () {
         var currentTitle = document.title;
         window.onblur = function () {
-            document.title = '官人,来快活呀!(＞﹏＜)';
+            document.title = '哎,来打我呀!(＞﹏＜)';
         }
         window.onfocus = function () {
             document.title = currentTitle;
