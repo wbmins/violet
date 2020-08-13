@@ -53,7 +53,7 @@ You can use "hidden text" to hide spoiler content
 {{< spoiler >}} HIDDEN TEXT {{< /spoiler >}}
 ```
 
-## Embedded BiliBili video
+## BiliBili video
 
 You can embed BiliBili videos via Shortcodes, just provide the AV号 of the bilibili video
 
