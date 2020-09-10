@@ -94,7 +94,7 @@ jQuery(function ($) {
             });
           } else {
             fix.css({
-              top: 120,
+              top: 0,
             });
           }
         } else {
