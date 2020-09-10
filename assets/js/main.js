@@ -55,9 +55,9 @@ jQuery(function ($) {
         $(".top-scroll-bar").attr(
           "style",
           "width: " +
-            ($(this).scrollTop() / ($(document).height() - $(this).height())) *
-              100 +
-            "%; display: block;"
+          ($(this).scrollTop() / ($(document).height() - $(this).height())) *
+          100 +
+          "%; display: block;"
         );
       });
     });
@@ -67,7 +67,7 @@ jQuery(function ($) {
   _Blog.articleToc = function () {
     window.onload = function () {
       var fix = $(".post-toc");
-      var end = $(".post-comment");
+      var end = $(".vpower txt-right");
       var fixTop = fix.offset().top,
         fixHeight = fix.height();
       var endTop, miss;
