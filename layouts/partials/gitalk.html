@@ -1,5 +1,5 @@
 {{ if .Site.Params.enableGitalk }}
-<div id="gitalk-container"></div>
+<div class="post-comment" id="gitalk-container"></div>
 <link rel="stylesheet" href="https://cdn.bootcss.com/gitalk/1.5.2/gitalk.css">
 <script src="https://cdn.bootcss.com/gitalk/1.5.2/gitalk.min.js"></script>
 <script>
@@ -15,7 +15,8 @@
     });
     (function () {
         if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
-            document.getElementById('gitalk-container').innerHTML = 'Gitalk comments not available by default when the website is previewed locally.';
+            document.getElementById('gitalk-container').innerHTML =
+                'Gitalk comments not available by default when the website is previewed locally.';
             return;
         }
         gitalk.render('gitalk-container');
