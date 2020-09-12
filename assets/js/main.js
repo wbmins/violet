@@ -46,18 +46,15 @@ jQuery(function ($) {
 
   // 顶部阅读进度条
   _Blog.scrollIndicator = function () {
-    const winHeight = window.innerHeight;
-    const docHeight = document.documentElement.scrollHeight;
-    const progressBar = document.querySelectorAll(".content_progress");
-    progressBar.forEach(function (progressBarItem) {
-      progressBarItem.max = docHeight - winHeight;
-      progressBarItem.value = window.scrollY;
-    });
-
-    document.addEventListener("scroll", function () {
-      progressBar.forEach(function (progressBarItem) {
-        progressBarItem.max = docHeight - winHeight;
-        progressBarItem.value = window.scrollY;
+    $(document).ready(function () {
+      $(window).scroll(function () {
+        $(".top-scroll-bar").attr(
+          "style",
+          "width: " +
+            ($(this).scrollTop() / ($(document).height() - $(this).height())) *
+              100 +
+            "%; display: block;"
+        );
       });
     });
   };
