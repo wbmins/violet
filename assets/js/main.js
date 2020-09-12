@@ -159,11 +159,11 @@ jQuery(function ($) {
   };
 
   $(document).ready(function () {
-    _Blog.articleToc();
     _Blog.addCopyBottons();
     _Blog.changeTitle();
     _Blog.scrollIndicator();
     _Blog.toggleTheme();
     _Blog.toggleMobileMenu();
+    _Blog.articleToc();
   });
 });
