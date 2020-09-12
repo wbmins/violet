@@ -64,11 +64,10 @@ jQuery(function ($) {
     window.onload = function () {
       var fix = $(".post-toc");
       var end = $("post-comment");
-      var fixTop = fix.offset().top,
-        fixHeight = fix.height();
+      var fixTop = fix.offset().top;
+      var fixHeight = fix.height();
       var endTop, miss;
       var offsetTop = fix[0].offsetTop;
-      console.log("hello")
       $(window).scroll(function () {
         var docTop = Math.max(
           document.body.scrollTop,
