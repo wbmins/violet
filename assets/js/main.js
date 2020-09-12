@@ -63,12 +63,12 @@ jQuery(function ($) {
   _Blog.articleToc = function () {
     window.onload = function () {
       var fix = $(".post-toc");
-      var end = $(".lincese");
+      var end = $("post-comment");
       var fixTop = fix.offset().top,
         fixHeight = fix.height();
       var endTop, miss;
       var offsetTop = fix[0].offsetTop;
-
+      console.log("hello")
       $(window).scroll(function () {
         var docTop = Math.max(
           document.body.scrollTop,
@@ -159,12 +159,11 @@ jQuery(function ($) {
   };
 
   $(document).ready(function () {
-    _Blog.externalUrl();
+    _Blog.articleToc();
     _Blog.addCopyBottons();
     _Blog.changeTitle();
     _Blog.scrollIndicator();
     _Blog.toggleTheme();
     _Blog.toggleMobileMenu();
-    _Blog.articleToc();
   });
 });
