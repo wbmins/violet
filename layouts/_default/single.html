@@ -102,17 +102,10 @@
         {{ end }}
     </div>
 
-    <!-- <div class="post-comment">
-          {{ if ( .Params.showComments | default true ) }}
-                 {{ if ne .Site.DisqusShortname "" }}
-                     {{ template "_internal/disqus.html" . }}
-                 {{ end }}
-          {{ end }}
-        {{ partial "gitalk.html" . }}
-    </div> -->
     <div class="post-comment">
-        <!-- 加入评论功能 -->
-        {{ partial "valine.html" . }}
+        {{ if ( .Params.showComments | default true ) }}
+        {{ partial "gitalk.html" . }}
+        {{ end }}
     </div>
 </article>
 {{- end }}
