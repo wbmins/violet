@@ -63,7 +63,7 @@ jQuery(function ($) {
   _Blog.articleToc = function () {
     window.onload = function () {
       var fix = $(".post-toc");
-      var end = $("gt-container");
+      var end = $(".lincese");
       var fixTop = fix.offset().top,
         fixHeight = fix.height();
       var endTop, miss;
