@@ -3,11 +3,7 @@ jQuery(function ($) {
 
   var _Blog = window._Blog || {};
 
-  _Blog.prettify = function () {
-    $("pre").addClass("prettyprint linenums").attr("style", "overflow:auto;");
-    window.prettyPrint && prettyPrint();
-  };
-
+  //链接新窗口打开
   _Blog.externalUrl = function () {
     $.expr[":"].external = function (obj) {
       return !obj.href.match(/^mailto\:/) && obj.hostname != location.hostname;
@@ -50,15 +46,18 @@ jQuery(function ($) {
 
   // 顶部阅读进度条
   _Blog.scrollIndicator = function () {
-    $(document).ready(function () {
-      $(window).scroll(function () {
-        $(".top-scroll-bar").attr(
-          "style",
-          "width: " +
-          ($(this).scrollTop() / ($(document).height() - $(this).height())) *
-          100 +
-          "%; display: block;"
-        );
+    const winHeight = window.innerHeight;
+    const docHeight = document.documentElement.scrollHeight;
+    const progressBar = document.querySelectorAll(".content_progress");
+    progressBar.forEach(function (progressBarItem) {
+      progressBarItem.max = docHeight - winHeight;
+      progressBarItem.value = window.scrollY;
+    });
+
+    document.addEventListener("scroll", function () {
+      progressBar.forEach(function (progressBarItem) {
+        progressBarItem.max = docHeight - winHeight;
+        progressBarItem.value = window.scrollY;
       });
     });
   };
@@ -109,8 +108,62 @@ jQuery(function ($) {
     };
   };
 
+  // 为代码块添加 Copy 按钮
+  _Blog.addCopyBottons = function () {
+    // Check if the browser supports navigator.clipboard
+    if (navigator && navigator.clipboard) {
+      copyButtons(navigator.clipboard);
+    } else {
+      var script = document.createElement("script");
+      script.src =
+        "https://cdnjs.cloudflare.com/ajax/libs/clipboard-polyfill/2.7.0/clipboard-polyfill.promise.js";
+      script.integrity = "sha256-waClS2re9NUbXRsryKoof+F9qc1gjjIhc2eT7ZbIv94=";
+      script.crossOrigin = "anonymous";
+      script.onload = function () {
+        copyButtons(clipboard);
+      };
+
+      document.body.appendChild(script);
+    }
+
+    function copyButtons(clipboard) {
+      document.querySelectorAll("pre > code").forEach(function (codeBlock) {
+        var button = document.createElement("button");
+        button.className = "copy-code-button";
+        button.type = "button";
+        button.innerText = "Copy";
+
+        button.addEventListener("click", function () {
+          clipboard.writeText(codeBlock.innerText).then(
+            function () {
+              /* Chrome doesn't seem to blur automatically,
+                       leaving the button in a focused state. */
+              button.blur();
+
+              button.innerText = "Copied!";
+
+              setTimeout(function () {
+                button.innerText = "Copy";
+              }, 2000);
+            },
+            function (error) {
+              button.innerText = "Error";
+            }
+          );
+        });
+
+        var pre = codeBlock.parentNode;
+        if (pre.parentNode.classList.contains("highlight")) {
+          var highlight = pre.parentNode;
+          highlight.appendChild(button);
+        }
+      });
+    }
+  };
+
   $(document).ready(function () {
-    _Blog.prettify();
+    _Blog.externalUrl();
+    _Blog.addCopyBottons();
     _Blog.changeTitle();
     _Blog.scrollIndicator();
     _Blog.toggleTheme();

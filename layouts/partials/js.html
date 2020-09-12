@@ -1,17 +1,17 @@
 {{ $cdn_url := .Scratch.Get "cdn_url" }}
 {{ $postHasImages :=  .Scratch.Get "postHasImages"}}
 {{ $jquery := resources.Get "/js/jquery.min.js" }}
-{{ $prettify := resources.Get "/js/prettify.min.js" }}
+{{ $highlight := resources.Get "/js/highlight.pack.js" }}
 {{ $dynamic := resources.Get "/js/dynamic.to.top.min.js" }}
 {{ $main := resources.Get "/js/main.js" }}
 {{ if .IsPage }}
 
 {{ if $postHasImages }}
 <link href="https://cdn.bootcss.com/lightgallery/1.6.11/css/lg-fb-comment-box.min.css" rel="stylesheet">
-{{ $vendorscript := slice $jquery $prettify $dynamic $main | resources.Concat "/js/vendor_gallery.js" | resources.Minify }}
+{{ $vendorscript := slice $jquery $highlight $dynamic $main | resources.Concat "/js/vendor_gallery.js" | resources.Minify }}
 <script src="{{ printf "%s%s" $cdn_url $vendorscript.RelPermalink }}" async=""></script>
 {{ else }}
-{{ $vendorscript := slice $jquery $prettify $dynamic $main | resources.Concat "/js/vendor_no_gallery.js" | resources.Minify }}
+{{ $vendorscript := slice $jquery $highlight $dynamic $main | resources.Concat "/js/vendor_no_gallery.js" | resources.Minify }}
 <script src="{{ printf "%s%s" $cdn_url $vendorscript.RelPermalink }}" async=""></script>
 {{ end }}
 
