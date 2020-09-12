@@ -61,9 +61,9 @@ jQuery(function ($) {
 
   //文章目录
   _Blog.articleToc = function () {
-    window.onload = function () {
-      var fix = $(".post-toc");
-      var end = $("post-comment");
+    var fix = $(".post-toc");
+    var end = $(".post-comment");
+    if (fix.offset() !== undefined) {
       var fixTop = fix.offset().top;
       var fixHeight = fix.height();
       var endTop, miss;
@@ -162,7 +162,7 @@ jQuery(function ($) {
     _Blog.changeTitle();
     _Blog.scrollIndicator();
     _Blog.toggleTheme();
-    _Blog.toggleMobileMenu();
     _Blog.articleToc();
+    _Blog.toggleMobileMenu();
   });
 });
