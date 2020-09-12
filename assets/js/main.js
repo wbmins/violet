@@ -63,7 +63,7 @@ jQuery(function ($) {
   _Blog.articleToc = function () {
     window.onload = function () {
       var fix = $(".post-toc");
-      var end = $(".post-warp .post-comment");
+      var end = $(".post-comment");
       var fixTop = fix.offset().top,
         fixHeight = fix.height();
       var endTop, miss;
