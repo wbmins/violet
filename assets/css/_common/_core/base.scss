@@ -10,12 +10,8 @@
 @font-face {
   font-family: 'Fira Code';
   src: url('/font/SourceHanSansCN-Bold.ttf') format('truetype');
-  src: url('/font/FiraCode-Regular.woff2');
-  src: url('/font/FiraCode-Regular.woff2') format('woff2'),
-    url('/font/FiraCode-Regular.eot') format('embedded-opentype'),
-    url('/font/FiraCode-Regular.woff') format('woff'),
-    url('/font/FiraCode-Regular.ttf') format('truetype');
-  font-style: normal;
+  src: url('/font/FiraCode-Bold.ttf') format('truetype');
+  font-style: Bold;
 }
 
 html {
@@ -40,7 +36,7 @@ html {
 }
 
 html {
-  font-family: "Josefin Sans", "思源黑体 CN Bold", -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", STHeiti, "Microsoft Yahei", "WenQuanYi Micro Hei", Arial, Verdana, sans-serif;
+  font-family: "Fira Code", "思源黑体", -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", STHeiti, "Microsoft Yahei", "WenQuanYi Micro Hei", Arial, Verdana, sans-serif;
 }
 
 body {
