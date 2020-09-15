@@ -9,12 +9,12 @@
 /* Fira Code */
 @font-face {
   font-family: 'Fira Code';
+  src: url('/font/SourceHanSansCN-Bold.ttf') format('truetype');
   src: url('/font/FiraCode-Regular.woff2');
   src: url('/font/FiraCode-Regular.woff2') format('woff2'),
     url('/font/FiraCode-Regular.eot') format('embedded-opentype'),
     url('/font/FiraCode-Regular.woff') format('woff'),
-    url('/font/FiraCode-Regular.ttf') format('truetype'),
-    url('/font/SourceHanSansCN-Bold.ttf') format('truetype');
+    url('/font/FiraCode-Regular.ttf') format('truetype');
   font-style: normal;
 }
 
