@@ -6,7 +6,7 @@
 /* josefin-sans-regular && pt-sans-regular */
 @import url('https://fonts.proxy.ustclug.org/css?family=Josefin+Sans|PT+Sans&display=swap');
 
-/* Fira Code */
+/* Fira Code && 思源黑体 */
 @font-face {
   font-family: 'Fira Code';
   src: url('/font/SourceHanSansCN-Bold.ttf') format('truetype');
@@ -97,6 +97,7 @@ a {
 
 blockquote {
   font: 14px/22px normal helvetica, sans-serif;
+  font-family: "Fira Code", "思源黑体";
   margin-top: 10px;
   margin-bottom: 10px;
   margin-left: 2%;
@@ -111,4 +112,8 @@ blockquote {
   .dark-theme & {
     background-color: $dark-blockquote-background-color;
   }
+}
+
+span {
+  font-family: "Fira Code", "思源黑体"
 }
